@@ -26,3 +26,32 @@ Route::get('/siswa/{nama_siswa}' , function($nama_siswa){
 $data = ['nama' => 'Yudi gunawan','alamat' => 'sumanda'];
 Route::view('about' ,'page/v_about',$data);
 Route::view('admin','page.admin.v_index');
+
+// tutrial blade
+
+Route::get('/guru',function(){
+    
+    return view('page_2.v_guru');
+});
+
+Route::get('about2' , function(){
+
+    return view('page_2.v_about');
+
+});
+
+Route::get('/home' , function(){
+
+    return view('page_2.v_home');
+
+});
+
+Route::get('/siswa2' , function(){
+
+    return view('page_2.v_siswa');
+
+});
+
+Route::get('/contact' , function(){
+    return view('page_2.v_contact');
+});
