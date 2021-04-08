@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\GuruController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,15 +57,9 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/contact' , function(){
 //     return view('page_2.v_contact');
 // });
-Route::get('/' , function(){
-    return view('page_admin.v_home');
+Route::get('/' , [HomeController::class,'index']);
 
-});
-
-Route::get('/guru' , function(){
-    return view('page_admin.v_guru');
-
-});
+Route::get('/guru' , [GuruController::class, 'index']);
 
 Route::get('/siswa', function(){
     return view('page_admin.v_siswa');
