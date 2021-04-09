@@ -22,7 +22,7 @@
                     <td>{{$item->mapel}}</td>
                     <td><img width="50px" src="{{url('photo_guru/'.$item->foto_guru)}}" alt="gambar" /></td>
                     <td>
-                        <a href="" class="btn btn-success">detail</a>
+                        <a href="/guru/detail/{{$item->id_guru}}" class="btn btn-success">detail</a>
                         <a href="" class="btn btn-warning">edit</a>
                         <a href="" class="btn btn-danger">delete</a>
                     </td>

@@ -12,4 +12,8 @@ class GuruModel extends Model
     public function allData(){
       return DB::table('tb_guru')->get();
     }
+
+    public function detailData($id){
+      return DB::table('tb_guru')->where('id_guru', $id)->first();
+    }
 }

@@ -60,6 +60,7 @@ use App\Http\Controllers\GuruController;
 Route::get('/' , [HomeController::class,'index']);
 
 Route::get('/guru' , [GuruController::class, 'index']);
+Route::get('/guru/detail/{id}' , [GuruController::class, 'detail']);
 
 Route::get('/siswa', function(){
     return view('page_admin.v_siswa');
