@@ -16,4 +16,13 @@ class GuruModel extends Model
     public function detailData($id){
       return DB::table('tb_guru')->where('id_guru', $id)->first();
     }
+
+    public function addData($data){
+      DB::table('tb_guru')->insert($data);
+    }
+    public function editdata($id , $data){
+      DB::table('tb_guru')
+      ->where('id_guru' , $id)
+      ->update($data);
+    }
 }
