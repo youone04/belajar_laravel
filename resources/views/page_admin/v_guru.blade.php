@@ -34,11 +34,38 @@
                     <td>
                         <a href="/guru/detail/{{$item->id_guru}}" class="btn btn-success">detail</a>
                         <a href="/guru/edit/{{$item->id_guru}}" class="btn btn-warning">edit</a>
-                        <a href="" class="btn btn-danger">delete</a>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger{{$item->id_guru}}">
+                           delete
+                        </button>
                     </td>
                 </tr>   
             @endforeach
         </tbody>
     </thead>
 </table>
+@foreach ($guru as $item)
+<div class="modal modal-danger fade" id="modal-danger{{$item->id_guru}}">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">{{$item->nama_guru}}</h4>
+        </div>
+        <div class="modal-body">
+          <p>Apakah Anda Yakin Ingin Menghapus Data {{$item->nama_guru}} ?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">No</button>
+          <a href="/guru/delete/{{$item->id_guru}}" type="button" class="btn btn-outline">Yes</a>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+    
+@endforeach
+
 @endsection
