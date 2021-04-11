@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\SiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,10 +68,7 @@ Route::get('guru/edit/{id}',[GuruController::class,'edit']);
 Route::post('guru/update/{id}', [GuruController::class, 'update']);
 Route::get('guru/delete/{id}',[GuruController::class,'delete']);
 
-Route::get('/siswa', function(){
-    return view('page_admin.v_siswa');
-
-});
+Route::get('/siswa', [SiswaController::class,'index']);
 
 Route::get('/user' , function(){
     return view('page_admin.v_user');
