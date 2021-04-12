@@ -78,3 +78,10 @@ Route::get('/penjualan/printPDF', [PenjualanController::class,'printpdf']);
 Route::get('/user' , function(){
     return view('page_admin.v_user');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

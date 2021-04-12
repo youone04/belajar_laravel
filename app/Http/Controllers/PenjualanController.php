@@ -11,6 +11,7 @@ class PenjualanController extends Controller
 {
     public function __construct(){
         $this->PenjualanModel = new PenjualanModel();
+        $this->middleware('auth');
     }
     //
     public function index(){ 

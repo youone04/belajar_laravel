@@ -6,13 +6,23 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    //
-    public function index(){
-        $data = ['nama' => 'yudi gunawan' , 'alamat' => 'sumanda'];
-        return view('page_admin.v_home', $data);
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 
-    public function guru(){
-        return view('page_admin.v_guru');
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
+    {
+        return view('page_admin.v_home');
     }
 }
