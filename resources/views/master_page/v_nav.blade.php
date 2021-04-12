@@ -5,10 +5,11 @@
         <li class="{{request()->is('guru')? 'active':''}}"><a href="/guru">  <i class="fa fa-dashboard"></i> <span>Guru</span>
         <li class="{{request()->is('siswa')? 'active':''}}"><a href="/siswa">  <i class="fa fa-dashboard"></i> <span>Siswa</span>
         <li class="{{request()->is('user')? 'active':''}}"><a href="/user">  <i class="fa fa-dashboard"></i> <span>User</span>
+        <li class="{{request()->is('penjualan')? 'active':''}}"><a href="/penjualan"><i class="fa fa-circle-o"></i>Penjualan</a></li>
         </li>        
 
         <ul class="treeview-menu">
-            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+            <li><a href="/penjualan"><i class="fa fa-circle-o"></i> Penjualan</a></li>
             <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
           </ul>
         </li>
@@ -21,7 +22,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i>Level One</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
           </ul>
         </li>       
