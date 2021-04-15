@@ -5,6 +5,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\PenjualanController;
+use App\Http\Controllers\PelangganController;
+use App\Http\Controllers\UserController;
+
+
 
 
 /*
@@ -61,27 +65,31 @@ use App\Http\Controllers\PenjualanController;
 //     return view('page_2.v_contact');
 // });
 Route::get('/' , [HomeController::class,'index']);
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();
 
-Route::get('/guru' , [GuruController::class, 'index'])->name('guru');//name digunakan untuk redirect
-Route::get('/guru/detail/{id}' , [GuruController::class, 'detail']);
-Route::get('guru/add', [GuruController::class, 'add']);
-Route::post('guru/insert', [GuruController::class, 'insert']);
-Route::get('guru/edit/{id}',[GuruController::class,'edit']);
-Route::post('guru/update/{id}', [GuruController::class, 'update']);
-Route::get('guru/delete/{id}',[GuruController::class,'delete']);
-Route::get('/siswa', [SiswaController::class,'index']);
-Route::get('/penjualan', [PenjualanController::class,'index']);
-Route::get('/penjualan/print', [PenjualanController::class,'print']);
-Route::get('/penjualan/printPDF', [PenjualanController::class,'printpdf']);
-
-
-Route::get('/user' , function(){
-    return view('page_admin.v_user');
+// hak akses untuk admin
+Route::group(['middleware' => 'admin'],function(){
+    Route::get('/guru' , [GuruController::class, 'index'])->name('guru');//name digunakan untuk redirect
+    Route::get('/guru/detail/{id}' , [GuruController::class, 'detail']);
+    Route::get('guru/add', [GuruController::class, 'add']);
+    Route::post('guru/insert', [GuruController::class, 'insert']);
+    Route::get('guru/edit/{id}',[GuruController::class,'edit']);
+    Route::post('guru/update/{id}', [GuruController::class, 'update']);
+    Route::get('guru/delete/{id}',[GuruController::class,'delete']);
+    Route::get('/siswa', [SiswaController::class,'index']);
+    Route::get('/penjualan', [PenjualanController::class,'index']);
+    Route::get('/penjualan/print', [PenjualanController::class,'print']);
+    Route::get('/penjualan/printPDF', [PenjualanController::class,'printpdf']);
+ 
 });
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => 'user'],function(){
+    Route::get('/user' , [App\Http\Controllers\UserController::class, 'index'])->name('user');
 
-Auth::routes();
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => 'pelanggan'],function(){
+    Route::get('/pelanggan', [App\Http\Controllers\PelangganController::class, 'index'])->name('pelanggan');
+});

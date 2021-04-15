@@ -202,7 +202,15 @@
         </div>
         <div class="pull-left info">
           <p>  {{ Auth::user()->name }}</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <a href="#"><i class="fa fa-circle text-success"></i> 
+            @if (Auth()->user()->level==1)
+             Admin
+            @elseif(Auth()->user()->level==2)
+             User
+            @else(Auth()->user()->level==3)
+             Pelanggan
+            @endif
+          </a>
         </div>
       </div>
       <!-- search form -->
